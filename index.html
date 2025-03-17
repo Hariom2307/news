@@ -3,9 +3,13 @@
     <button onclick="getNews()">Generate news</button>
     <div id="result"></div>
     <script>
-      const API_KEY ="gsk_8ggHpUPAPRqOt4Mfe9DWWGdyb3FYxnxyTjQq8tD5NB32";
+      const API_KEY =
+        "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";
+
+
       async function getNews() {
-        const response = await fetch("https://api.groq.com/openai/v1/chat/completions",
+        const response = await fetch(
+          "https://api.groq.com/openai/v1/chat/completions",
           {
             method: "POST",
             headers: {
@@ -25,6 +29,7 @@
         );
         const body = await response.json();
         console.log(body.choices[0].message.content);
+
         let newDiv = document.createElement('div');
         newDiv.innerHTML = body.choices[0].message.content;
         document.getElementById('result').appendChild(newDiv);
